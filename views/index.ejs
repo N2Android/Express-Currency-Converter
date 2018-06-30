@@ -2,35 +2,34 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='../public/stylesheets/style.css'/>
 </head>
 <body>
 <img src="images/CurrencyConversion.png">
 <h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<form method="post" action="">
+    <h2>
+        <label for="conversion_amount">Conversion Currency</label>
+        <input type="number" id="conversion_amount">
+        <label for="ConversionCurrency"></label><select id="ConversionCurrency">
+            <% for(let i = 0; i < currencies.length; i++) { %>
+            <option value="currencies[i]"> <%= currencies[ i ] %> </option>
+            <% } %>
+        </select>
+    </h2>
 
-<form>
-    <h2>Currency to get converted</h2>
-    <h3>Amount </h3><label>
-        <input type="number" lang="amount">
-    </label>
-    <h3>Currency</h3>
-    <select id="ConversionCurrency">
-        <% for(let i = 0; i < currencies.length; i++) { %>
-        <option value="currencies[i]"> <%= currencies[i] %> </option>
-        <% } %>
-    </select>
+    <br>
+    <h2>
+        <label for="converted_currency">Converted Currency</label>
+        <select id="converted_currency">
+            <% for(let i = 0; i < currencies.length; i++) { %>
+            <option value="currencies[i]"> <%= currencies[ i ] %> </option>
+            <% } %>
+        </select>
 
-    <h2>Currency converting to</h2>
-    <h3>Amount </h3><label>
-        <input type="number" lang="amount">
-    </label>
-    <h3>Currency</h3>
-    <select id="ConvertedCurrency">
-        <% for(let i = 0; i < currencies.length; i++) { %>
-        <option value="currencies[i]"> <%= currencies[i] %> </option>
-        <% } %>
-    </select>
+        <input type="submit" id="convert-currency" value="Convert"/>
+        <input type="text" readonly placeholder="Please press the convert button">
+    </h2>
 </form>
 </body>
 </html>
