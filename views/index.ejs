@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-  <img src="images/CurrencyConversion.png">
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<img src="images/CurrencyConversion.png">
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
 
-    <form>
-      <h2>Currency to get converted</h2>
-      <h3>Amount </h3><input type="number" lang="amount">
-      <h3>Currency </h3>
-      <select id="ConvertFromCurrency">
-      </select>
-    </form>
-  </body>
+<form>
+    <h2>Currency to get converted</h2>
+    <h3>Amount </h3><label>
+        <input type="number" lang="amount">
+    </label>
+    <h3>Currency</h3>
+    <select id="ConversionCurrency">
+        <% for(let i = 0; i < currencies.length; i++) { %>
+        <option value="currencies[i]"> <%= currencies[i] %> </option>
+        <% } %>
+    </select>
+
+    <h2>Currency converting to</h2>
+    <h3>Amount </h3><label>
+        <input type="number" lang="amount">
+    </label>
+    <h3>Currency</h3>
+    <select id="ConvertedCurrency">
+        <% for(let i = 0; i < currencies.length; i++) { %>
+        <option value="currencies[i]"> <%= currencies[i] %> </option>
+        <% } %>
+    </select>
+</form>
+</body>
 </html>
